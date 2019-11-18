@@ -20,7 +20,7 @@ print(r.request.headers)
 print(r.status_code)    #返回状态码
 print(r.headers)   # 头部
 print(r.text)   #打印文本返回结果
-print(type(r.text))   
+print(type(r.text))   #查看类型
 print(r.json())    #json解析 成dict
 print(r.encoding)
 print(r.cookies)   #打印cookies 参数

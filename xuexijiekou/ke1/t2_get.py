@@ -4,6 +4,7 @@ import requests
 import urllib3
 urllib3.disable_warnings()
 
+#博客园URL
 url = "https://zzk.cnblogs.com/s/blogpost"
 #传头部headers
 h = {
