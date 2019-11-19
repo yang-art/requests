@@ -18,4 +18,4 @@ par = {
 #verify = False   不校验ssl证书问题
 #发送博客园接口地址
 r1 = requests.get(url,params=par,verify=False,headers = h)
-print(r1.text)
+print(r1.text)  #打印文本格式
