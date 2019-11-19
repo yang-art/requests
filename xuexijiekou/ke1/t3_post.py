@@ -4,7 +4,7 @@
 import requests
 # 接口地址  垃圾分类查询数据接口
 url = "http://apis.juhe.cn/rubbish/category"
-
+#  参数 key : ''
 par= {
     'key':'b3843e6c185969aa4dbdba27bf93c43e'
 
