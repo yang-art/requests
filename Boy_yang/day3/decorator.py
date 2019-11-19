@@ -27,6 +27,5 @@ def bbs():
     print('welcome to bbs page')
     return 'from bbs'
 
-index()
-home()
-bbs()
+
+
