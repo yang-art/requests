@@ -3,6 +3,7 @@
 import requests
 
 url = 'http://japi.juhe.cn/qqevaluate/qq'
+#参数
 par = {
     'key':'8dbee1fcd8627fb6699bce7b986abc45',
     'qq':'3256814316'
