@@ -16,7 +16,7 @@ r = requests.get(url,headers=h,verify = False)
 #RequestsCookieJar 格式的cookies
 coks = r.cookies
 print(coks)
-
+print(dict(coks))  #转换成字典格式
 #jar的格式
 r2 =requests.get(url,headers=h,cookies=coks,verify=False)
 print(r2)
