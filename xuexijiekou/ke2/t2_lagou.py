@@ -1,7 +1,7 @@
 #coding:utf-8
 
 import requests
-import re    #导致正则包
+import re    #导入正则库
 s = requests.session()
 url = 'https://passport.lagou.com/login/login.html?utm_source=m_cf_cpt_baidu_pcbt'
 
