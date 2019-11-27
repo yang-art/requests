@@ -26,7 +26,7 @@ class Tianqi(unittest.TestCase):  #历时天气查询接口用例
     def test_02(self):
         '''城市city_id 为空时'''
         par = {
-            'city_id': '',
+            'city_id':'',
             'weather_date': '2019-11-02',
             'key': '9da5b0a8da65f33eebba98e3ca1c250d'
         }
@@ -41,7 +41,7 @@ class Tianqi(unittest.TestCase):  #历时天气查询接口用例
         '''当wearher_date 为空时 '''
         par = {
             'city_id': '26',
-            'weather_date': '',
+            'weather_date':'',
             'key': '9da5b0a8da65f33eebba98e3ca1c250d'
         }
         # 发送请求
@@ -54,7 +54,7 @@ class Tianqi(unittest.TestCase):  #历时天气查询接口用例
     def test_04(self):
         '''当weather_date为空 city_id为空时   期望：城市ID格式错误'''
         par = {
-            'city_id': '',
+            'city_id':'',
             'weather_date':'',
             'key': '9da5b0a8da65f33eebba98e3ca1c250d'
         }
@@ -67,8 +67,8 @@ class Tianqi(unittest.TestCase):  #历时天气查询接口用例
     def test_05(self):
         '''当weather_date city_id正确，key错误时  期望：错误的请求KEY'''
         par = {
-            'city_id': '',
-            'weather_date': '',
+            'city_id': '26',
+            'weather_date': '2019-11-01',
             'key': '9da5b0a8da65f33eebba98e3ca1'
         }
         # 发送请求
@@ -79,10 +79,10 @@ class Tianqi(unittest.TestCase):  #历时天气查询接口用例
         self.assertEqual(res, '错误的请求KEY')  # 断言
 
     def test_06(self):
-        '''key为空时  期望：'''
+        '''key为空时  期望：错误的请求KEY'''
         par = {
-            'city_id': '',
-            'weather_date': '',
+            'city_id':'21',
+            'weather_date':'2019-10-23',
             'key': ''
         }
         # 发送请求
@@ -95,8 +95,8 @@ class Tianqi(unittest.TestCase):  #历时天气查询接口用例
     def test_07(self):
         '''不传参数key'''
         par = {
-            'city_id': '',
-            'weather_date': ''
+            'city_id': '26',
+            'weather_date': '2019-11-01'
 
         }
         # 发送请求
@@ -108,7 +108,8 @@ class Tianqi(unittest.TestCase):  #历时天气查询接口用例
     def tearDown(self):
         # pass
          print('数据清理')
-    @classmethod
+
+    @classmethod  # 作用就是申明是个类方法
     def tearDownClass(cls):
         print("用例已执行完毕，程序关闭！")
 
