@@ -105,9 +105,12 @@ class Tianqi(unittest.TestCase):  #历时天气查询接口用例
         res = r.json()['reason']
         print("实际结果：%s" % res)
         self.assertEqual(res, '错误的请求KEY')  # 断言
+    def tearDown(self):
+        # pass
+         print('数据清理')
     @classmethod
     def tearDownClass(cls):
-        print("数据清理")
+        print("用例已执行完毕，程序关闭！")
 
 if __name__=='__main__':
     unittest.main()
