@@ -2,10 +2,13 @@
 #__author__='易木'
 import requests
 import unittest
-s = requests.session()
+
 class Tianqi(unittest.TestCase):  #历时天气查询接口用例
-    def setUp(self):
-        self.url = 'http://v.juhe.cn/historyWeather/weather'
+
+    @classmethod
+    def setUpClass(cls):
+        cls.url = 'http://v.juhe.cn/historyWeather/weather'
+        cls.s = requests.session()
 
     def test_01(self):
         '''测试历史天气数据接口
@@ -16,7 +19,7 @@ class Tianqi(unittest.TestCase):  #历时天气查询接口用例
             'key': '9da5b0a8da65f33eebba98e3ca1c250d'
         }
         #发送请求
-        r = s.get(self.url, params=par, verify=False)
+        r = self.s.get(self.url, params=par, verify=False)
         print(r.text)
         #获取结果
         res =r.json()["reason"]
@@ -31,7 +34,7 @@ class Tianqi(unittest.TestCase):  #历时天气查询接口用例
             'key': '9da5b0a8da65f33eebba98e3ca1c250d'
         }
         # 发送请求
-        r = s.get(self.url, params=par, verify=False)
+        r = self.s.get(self.url, params=par, verify=False)
         print(r.text)
         # 获取结果
         res = r.json()["reason"]
@@ -45,7 +48,7 @@ class Tianqi(unittest.TestCase):  #历时天气查询接口用例
             'key': '9da5b0a8da65f33eebba98e3ca1c250d'
         }
         # 发送请求
-        r = s.get(self.url, params=par, verify=False)
+        r = self.s.get(self.url, params=par, verify=False)
         print(r.text)
         # 获取结果
         res = r.json()["reason"]
@@ -59,7 +62,7 @@ class Tianqi(unittest.TestCase):  #历时天气查询接口用例
             'key': '9da5b0a8da65f33eebba98e3ca1c250d'
         }
         # 发送请求
-        r = s.get(self.url, params=par, verify=False)
+        r = self.s.get(self.url, params=par, verify=False)
         print(r.text)
         res = r.json()['reason']
         print("实际结果：%s" % res)
@@ -72,7 +75,7 @@ class Tianqi(unittest.TestCase):  #历时天气查询接口用例
             'key': '9da5b0a8da65f33eebba98e3ca1'
         }
         # 发送请求
-        r = s.get(self.url, params=par, verify=False)
+        r = self.s.get(self.url, params=par, verify=False)
         print(r.text)
         res = r.json()['reason']
         print("实际结果：%s" % res)
@@ -86,7 +89,7 @@ class Tianqi(unittest.TestCase):  #历时天气查询接口用例
             'key': ''
         }
         # 发送请求
-        r = s.get(self.url, params=par, verify=False)
+        r = self.s.get(self.url, params=par, verify=False)
         print(r.text)
         res = r.json()['reason']
         print("实际结果：%s" % res)
@@ -100,18 +103,16 @@ class Tianqi(unittest.TestCase):  #历时天气查询接口用例
 
         }
         # 发送请求
-        r = s.get(self.url, params=par, verify=False)
+        r = self.s.get(self.url, params=par, verify=False)
         print(r.text)
         res = r.json()['reason']
         print("实际结果：%s" % res)
         self.assertEqual(res, '错误的请求KEY')  # 断言
-    def tearDown(self):
-        # pass
-         print('数据清理')
 
     @classmethod  # 作用就是申明是个类方法
     def tearDownClass(cls):
-        print("用例已执行完毕，程序关闭！")
+        cls.s.close()
+
 
 if __name__=='__main__':
     unittest.main()
